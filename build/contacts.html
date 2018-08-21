@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./assets/styles/app.min.css">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon-philarmonia.ico">
     <script src="./assets/scripts/bundle.js" defer></script>
+    <script src="./assets/scripts/slider-custom.js" defer></script>
+    <script src="./assets/scripts/audio.js" defer> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
@@ -33,7 +35,7 @@
             <div class="menu">
               <ul class="menu__list">
                 <li class="menu__item"><a class="menu__link" href="index.html">головна</a></li>
-                <li class="menu__item"><a class="menu__link" href="about.html">про філармонію</a></li>
+                <li class="menu__item"><a class="menu__link active" href="about.html">про філармонію</a></li>
                 <li class="menu__item"><a class="menu__link menu__link--drop" href="#">виконавці</a>
                   <div class="drop-down">
                     <div class="container">
@@ -77,7 +79,7 @@
                 <li class="menu__item"><a class="menu__link menu__link--drop" href="#">концерти</a></li>
                 <li class="menu__item"><a class="menu__link menu__link--drop" href="#">галерея</a></li>
                 <li class="menu__item"><a class="menu__link" href="#">комунальна власність</a></li>
-                <li class="menu__item"><a class="menu__link active menu__link--drop" href="contacts.html">контакти</a></li>
+                <li class="menu__item"><a class="menu__link menu__link--drop" href="contacts.html">контакти</a></li>
               </ul>
             </div>
           </div>
@@ -110,7 +112,7 @@
           <div class="data__contacts">
             <div class="data__col">
               <div class="data__row">
-                <div class="data__tel">Тел:</div>
+                <div class="data__tel">Тел.:</div>
                 <div class="data__numbers"><a class="data__number" href="tel:+380662195580">+38 (066) 219 55 80 </a><a class="data__number" href="tel:+380633266255">+38 (063) 326 62 55</a></div>
               </div>
               <div class="data__row">
@@ -133,19 +135,19 @@
               <div class="form__col-left">
                 <div class="form__row">
                   <label class="form__block">
-                    <div class="form__title">* Прізвище, ім’я:</div>
+                    <div class="form__subtitle">* Прізвище, ім’я:</div>
                     <input class="form__input" type="text" name="user-name" required>
                   </label>
                 </div>
                 <div class="form__row">
                   <label class="form__block">
-                    <div class="form__title">* E-mail:</div>
+                    <div class="form__subtitle">* E-mail:</div>
                     <input class="form__input" type="text" name="e-mail" required>
                   </label>
                 </div>
                 <div class="form__row">
                   <label class="form__block">
-                    <div class="form__title">Телефон (у міжнародному форматі):</div>
+                    <div class="form__subtitle">Телефон (у міжнародному форматі):</div>
                     <input class="form__input" type="text" name="phone-number">
                   </label>
                 </div>
@@ -153,7 +155,7 @@
               <div class="form__col-right">
                 <div class="form__row">
                   <label class="form__block">
-                    <div class="form__title">* Повідомлення:</div>
+                    <div class="form__subtitle">* Повідомлення:</div>
                     <textarea class="form__textarea" name="message" cols="30" rows="5" required></textarea>
                   </label>
                 </div>
@@ -185,7 +187,14 @@
                 <li class="calendar__item"><a class="calendar__date" href="#">01</a>
                   <div class="calendar__day">пн</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">02</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">02
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">вт</div>
                 </li>
                 <li class="calendar__item"><a class="calendar__date" href="#">03</a>
@@ -203,7 +212,14 @@
                 <li class="calendar__item"><a class="calendar__date" href="#">07</a>
                   <div class="calendar__day">вс</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">08</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">08
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">пн</div>
                 </li>
                 <li class="calendar__item"><a class="calendar__date" href="#">09</a>
@@ -221,19 +237,47 @@
                 <li class="calendar__item"><a class="calendar__date" href="#">13</a>
                   <div class="calendar__day">сб</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">14</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">14
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">нд</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">15</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">15
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">пн</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">16</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">16
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">вт</div>
                 </li>
                 <li class="calendar__item"><a class="calendar__date" href="#">17</a>
                   <div class="calendar__day">ср</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">18</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">18
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">чт</div>
                 </li>
                 <li class="calendar__item"><a class="calendar__date" href="#">19</a>
@@ -263,7 +307,14 @@
                 <li class="calendar__item"><a class="calendar__date" href="#">27</a>
                   <div class="calendar__day">сб</div>
                 </li>
-                <li class="calendar__item"><a class="calendar__date active" href="#">28</a>
+                <li class="calendar__item"><a class="calendar__date active" href="#">28
+                    <div class="tooltip">
+                      <div class="tooltip__wrap">
+                        <div class="tooltip__heading">“Вечори з аркатою”</div>
+                        <div class="tooltip__content"></div>
+                        <p>Мистецькі проекти 79-го концертного сезону Вінницької обласної філармонії  (2015-16 рр.)</p>
+                      </div>
+                    </div></a>
                   <div class="calendar__day">нд</div>
                 </li>
                 <li class="calendar__item"><a class="calendar__date" href="#">29</a>
