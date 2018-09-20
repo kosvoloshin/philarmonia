@@ -348,6 +348,7 @@
     bottom: rem(20px);
     transition: .3s;
     outline: none;
+    padding: 0;
 
     @include tablets {
         display: block;

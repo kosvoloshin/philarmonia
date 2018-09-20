@@ -180,7 +180,7 @@
     background-color: #f5f7fc;
 
     &:after {
-      color: #393c42;
+      border-color: #393c42;
     }
   }
 }
@@ -233,7 +233,15 @@
   }
 
   &::after {
-    content: '\2039';
+    content: '';
+    height: 8px;
+    width: 8px;
+    background: transparent;
+    border-left: 2px solid #f4f6fb;
+    border-bottom: 2px solid #f4f6fb;
+    transform: rotate(45deg) translate(-60%, -20%);
+    left: 50%;
+    top: 50%;
     font-family: $a;
     font-size: 1.7rem;
     color: #f4f6fb;
@@ -298,7 +306,15 @@
   }
 
   &::after {
-    content: '\203a';
+    content: '';
+    height: 8px;
+    width: 8px;
+    background: transparent;
+    border-left: 2px solid #f4f6fb;
+    border-bottom: 2px solid #f4f6fb;
+    transform: rotate(-135deg) translate(75%, 0%);
+    left: 50%;
+    top: 50%;
     font-family: $a;
     font-size: 1.7rem;
     color: #f4f6fb;

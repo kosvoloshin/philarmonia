@@ -23,11 +23,15 @@
   vertical-align: middle;
   text-align: center;
   transition: .3s;
+  position: relative;
 
   &:hover {
     background: #f5f7fc;
 
     .glyphicon:before {
+      border-top-color: #393c42;
+    }
+    .glyphicon-pause::before {
       color: #393c42;
     }
   }
@@ -35,15 +39,16 @@
 
 .glyphicon-play {
   &::before {
-    content: '\25b6';
-    line-height: rem(36px);
-    text-align: center;
-    font-size: rem(21px);
-    color: #f5f7fc;
-
-    @include phones {
-      font-size: rem(15px);
-    }
+    content: '';
+    height: 0;
+    width: 0;
+    border: 5px solid transparent;
+    border-top-color: #f5f7fc;
+    border-bottom-width: 0; 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: rotate(-90deg) translate(20%, -80%);
   }
 }
 

@@ -28,6 +28,10 @@
         visibility: visible;
         opacity: 1;
 
+        @include laptop {
+            height: 260px;
+        }
+
         @include tablets {
             height: 250px;
         }
@@ -115,17 +119,30 @@
         border-top: 1px solid #d3b47e;
         border-bottom: 1px solid #d3b47e;
         justify-content: initial;
+        position: relative;
     }
 }
 
 .calendar__item {
     text-align: center;
     max-height: rem(36px);
+    position: relative;
+
+    &:hover {
+        .tooltip--hide {
+            transform: translate(-50%, 0) scale(1);
+        }
+
+        .calendar__date:after {
+            transform: translate(-50%, 0) rotate(180deg); 
+        }
+    }
 
     @include desktop {
         width: rem(37px);
         height: rem(40px);
         line-height: rem(40px);
+        position: initial;
     }
 
     .calendar__day {
@@ -167,6 +184,10 @@
             @include desktop {
                 display: none;
             }
+        }
+
+        @include desktop {
+            position: initial;
         }
 
         &:hover {
@@ -214,8 +235,31 @@
         left: 50%;
     }
 
+    &::before {
+        content: '';
+        height: 70px;
+        width: 120px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        @include desktop {
+            width: 100%;
+            height: 300px;
+        }
+
+        @include phones {
+            height: 245px;
+        }
+    }
+
     @include desktop {
-        display: none;
+        bottom: calc(100% + 107px);
+    }
+
+    @include phones {
+        bottom: calc(100% + 95px);
     }
 }
 
@@ -237,16 +281,6 @@
             left: 50%;
         }
     }
-
-    /*&:before {
-        content: '';
-        top: 98%;
-        height: rem(60px);
-        width: 70%;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, 0);
-    }*/
 }
 
 .tooltip__heading {
@@ -276,6 +310,23 @@
     letter-spacing: normal;
     color: #00132f;
     padding-top: rem(5px);
+}
+
+.tooltip__link {
+    text-align: left;
+    font-family: $r-r;
+    font-size: rem(14px);
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: rem(18px);
+    letter-spacing: normal;
+    color: #00132f;
+    transition: .3s;
+
+    &:hover {
+        color: $text_hover;
+    }
 }
 
 .calendar__week {
