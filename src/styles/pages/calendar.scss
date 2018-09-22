@@ -9,6 +9,20 @@
     transition: .5s;
 }
 
+.bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}
+
 .calendar__row--hiden {
     
     @include desktop {
@@ -131,6 +145,10 @@
     &:hover {
         .tooltip--hide {
             transform: translate(-50%, 0) scale(1);
+
+            @include desktop {
+                transform: scale(0);
+            }
         }
 
         .calendar__date:after {
@@ -161,9 +179,6 @@
 
     &:hover {
         color: rgba($color: $text, $alpha: 1.0); 
-        .tooltip--hide {
-            transform: translate(-50%, 0) scale(1);
-        }
     }
 
     &.active {
@@ -212,7 +227,7 @@
     bottom: calc(100% + 25px);
     left: 0;
     transform: scale(0);
-    transition: .5s;
+    transition: .3s;
     background-color: #f3ead7;
     box-shadow: 0px 5px 26.5px 0.5px rgba(0, 0, 0, 0.16);
 
@@ -223,6 +238,10 @@
 
     &.scale {
         transform: scale(1);
+
+        @include desktop {
+            transform: translate(-50%, 0) scale(1)!important;
+        }
     }
 }
 
@@ -243,16 +262,9 @@
         top: 100%;
         left: 50%;
         transform: translate(-50%, 0);
-
-        @include desktop {
-            width: 100%;
-            height: 300px;
-        }
-
-        @include phones {
-            height: 245px;
-        }
     }
+
+
 
     @include desktop {
         bottom: calc(100% + 107px);
